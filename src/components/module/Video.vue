@@ -3,21 +3,28 @@
   <div>
     <van-swipe :show-indicators="false" :loop="false" vertical @change="onChange" style="height: 100vh;">
       <van-swipe-item v-for="(item,index) in dataList" :key="index">
-        <video
-        @click="pauseVideo"
-        @ended="onPlayerEnded($event)"
-        autoplay
-        id="video"
-        preload="auto"
-        webkit-playsinline="true"
-        playsinline="true"
-        x-webkit-airplay="allow"
-        x5-video-player-type="h5"
-        x5-video-player-fullscreen="true"
-        x5-video-orientation="portraint"
-        style="object-fit:fill"
-        width="100%" height="100%" :src="item.src"></video>
+        <div class="video_container">
+          <video
+            class="video_box"
+            @click="pauseVideo"
+            @ended="onPlayerEnded($event)"
+            autoplay
+            id="video"
+            preload="auto"
+            webkit-playsinline="true"
+            playsinline="true"
+            x-webkit-airplay="allow"
+            x5-video-player-type="h5"
+            x5-video-player-fullscreen="true"
+            x5-video-orientation="portraint"
+            style="object-fit:fill"
+            width="100%" height="100%" :src="item.src"></video>
+        <!-- 播放暂停按钮 -->
         <img src="../../assets/start.png" v-show="iconPlayShow" class="icon_play" @click="playvideo" alt="">
+        </div>
+        <div>
+
+        </div>
       </van-swipe-item>
     </van-swipe>
   </div>
@@ -113,4 +120,27 @@ import axios from 'axios';
 </script>
 <style scoped>
   /* @import url(); 引入css类 */
+  /* 暂停按钮 */
+  .icon_play{
+    position: absolute;
+    top: 44%;
+    right: 0;
+    left: 0;
+    bottom: auto;
+    margin: auto;
+    z-index: 999;
+    height: 60px;
+    border-radius: 50%;
+  }
+  /* 视频盒子 */
+  .video_box{
+    object-fit: cover !important;
+    z-index: 999;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+  }
 </style>
