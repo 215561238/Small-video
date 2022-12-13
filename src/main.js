@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 import Vant from 'vant'
 import 'vant/lib/index.css'
+import './assets/font/iconfont.css'//导入 字体图标样式css
+import './assets/font/iconfont'//导入 字体图标样式svg
 
 Vue.use(Vant)
 
